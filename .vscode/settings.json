@@ -1,0 +1,11 @@
+{
+    "git.ignoreLimitWarning": true, 
+    "runOnSave.commands": [
+        {
+            "match": ".*",
+            "command": "python3 ${fileBasename}",
+            "runIn": "${workspaceFolder}"
+        }
+    ],
+    "python.pythonPath": "/Users/alexiev/anaconda3/bin/python"
+}
