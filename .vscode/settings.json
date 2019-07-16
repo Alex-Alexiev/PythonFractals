@@ -3,9 +3,9 @@
     "runOnSave.commands": [
         {
             "match": ".*",
-            "command": "python3 ${fileBasename}",
+            "command": "python ${fileBasename}",
             "runIn": "${workspaceFolder}"
         }
     ],
-    "python.pythonPath": "/Users/alexiev/anaconda3/bin/python"
+    "python.pythonPath": "C:\\Users\\16479\\Anaconda3\\python.exe"
 }

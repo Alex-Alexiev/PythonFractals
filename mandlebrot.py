@@ -1,17 +1,21 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import imageio
+import sys
 
 nx, ny = (1000,1000)
 
 iterations = 50
 threshold = 2
 
-file_path = "/Users/alexiev/Documents/dev/github/PythonFractals/mandlebrot/"
+#file_path = "/Users/alexiev/Documents/dev/github/PythonFractals/mandlebrot/"
+file_path = "C:/Users/16479/dev/alex_github/PythonFractals/mandlebrot/"
 
-frames = 100
-initXMin, initXMax, initYMin, initYMax = (-1.48, 0.02, -0.5, 1)
-step = 0.01
+frames = 400
+xOffset = 0.02075047 
+#xMin, xMax, yMin, yMax = (-1.5+xOffset, xOffset, -0.5, 1)
+xMin, xMax, yMin, yMax = (-2.5+xOffset, 1+xOffset, -1.5, 2)
+stepPercent = 0.02
 
 fps = 20
 
@@ -44,7 +48,9 @@ def getMandlebrotSet(xMin, xMax, yMin, yMax):
     return set
 
 def showLoadingBar(percent, total):
-    print("|"+ "#"*int(percent*total) + " "*(total-int(percent*total)) + "|")
+    sys.stdout.write('\r')
+    sys.stdout.flush()
+    sys.stdout.write("|"+ "#"*int(percent*total) + " "*(total-int(percent*total)) + "|")
     
 images = []
 
@@ -58,8 +64,12 @@ def addFrame(frame):
 sets = []
 
 for s in range(frames):
-    steped = step*(s-1)
-    sets.append(getMandlebrotSet(initXMin+steped, initXMax-steped, initYMin+steped, initYMax-steped))
+    step = stepPercent * (xMax - xMin)
+    xMin+=step
+    xMax-=step
+    yMin+=step
+    yMax-=step
+    sets.append(getMandlebrotSet(xMin, xMax, yMin, yMax))
     addFrame(sets[s])
     showLoadingBar(s/frames, 50)
 
