@@ -2,16 +2,16 @@ import numpy as np
 import matplotlib.pyplot as plt
 import imageio
 import sys
-
+  
 nx, ny = (1000,1000)
 
 iterations = 50
 threshold = 2
-
+ 
 #file_path = "/Users/alexiev/Documents/dev/github/PythonFractals/mandlebrot/"
 file_path = "C:/Users/16479/dev/alex_github/PythonFractals/mandlebrot/"
 
-frames = 400
+frames = 1
 xOffset = 0.02075047 
 #xMin, xMax, yMin, yMax = (-1.5+xOffset, xOffset, -0.5, 1)
 xMin, xMax, yMin, yMax = (-2.5+xOffset, 1+xOffset, -1.5, 2)
